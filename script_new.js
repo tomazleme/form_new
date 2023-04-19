@@ -13,16 +13,20 @@ function isValidEmail(email) {
 }
 
 // Função para lidar com o evento de clique ou pressionar Enter no Passo 1
-function handleStep1Submit() {
-  const emailInput = document.querySelector('#email-step1');
+function handleStep1Submit(event) {
+  event.preventDefault(); // Adicione esta linha para prevenir a ação padrão do botão
+
+  const emailInput = document.getElementById('email-step1');
   const email = emailInput.value;
 
-  if (isValidEmail(email)) {
+  if (validateEmail(email)) {
     showStep('step2');
   } else {
-    alert('Por favor, insira um endereço de email válido.');
+    emailInput.setCustomValidity('Por favor, insira um endereço de email válido.');
+    emailInput.reportValidity();
   }
 }
+
 // Funçao para lidar com evento de clique no botão voltar do passo 2 para o passo 1
 function handleBackToStep1() {
   showStep('step1');
@@ -36,6 +40,7 @@ function addEventListeners() {
   const step2BackBtn = document.querySelector('#step2 .btn-my-custom[aria-current="back-step1"]');
   step2BackBtn.addEventListener('click', handleBackToStep1);
 }
+
 
 // Função para adicionar event listeners
 function addEventListeners() {
