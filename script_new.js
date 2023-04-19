@@ -1,25 +1,27 @@
-const STEP_1 = 'step-1';
-const STEP_2 = 'step-2';
-const STEP_3S = 'step-3S';
-const STEP_3N = 'step-3N';
+// Função para mostrar um passo específico do formulário e esconder os outros
+function showStep(stepId) {
+  // Seleciona todos os elementos que têm um ID começando com "step"
+  const steps = document.querySelectorAll('[id^="step"]');
 
-function hideAllSteps() {
-  const formSteps = document.querySelectorAll('.form-step');
-  formSteps.forEach((step) => {
-    step.style.display = 'none';
+  // Percorre cada passo e define sua propriedade 'display' como 'block' ou 'none', dependendo se é o passo ativo
+  steps.forEach((step) => {
+    step.style.display = step.id === stepId ? 'block' : 'none';
   });
 }
 
-function showStep(stepId) {
-  const step = document.getElementById(stepId);
-  step.style.display = 'block';
+// Função para inicializar o estado do formulário, mostrando o Passo 1
+function initializeForm() {
+  showStep('step1');
 }
 
-function initForm() {
-  // Adicione event listeners e lógica do formulário aqui.
+// Adiciona um event listener para o botão "Continuar" do Passo 1
+document.querySelector('#step1 .btn-my-custom[aria-current="step2"]').addEventListener('click', () => {
+  // Quando o botão "Continuar" é clicado, chama a função `showStep` com o ID do Passo 2
+  showStep('step2');
+});
 
-  hideAllSteps();
-  showStep(STEP_1);
-}
-
-initForm();
+// Adiciona um event listener para quando a página for carregada
+document.addEventListener('DOMContentLoaded', () => {
+  // Quando a página é carregada, chama a função `initializeForm` para configurar o estado inicial do formulário
+  initializeForm();
+});
