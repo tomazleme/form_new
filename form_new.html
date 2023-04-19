@@ -1,34 +1,144 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formulário de várias etapas</title>
-  <!-- CSS do Bootstrap -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
-</head>
-<body>
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <div id="step-1" class="form-step">
-          <!-- Conteúdo do Passo 1 -->
-        </div>
-        <div id="step-2" class="form-step">
-          <!-- Conteúdo do Passo 2 -->
-        </div>
-        <div id="step-3S" class="form-step">
-          <!-- Conteúdo do Passo 3S -->
-        </div>
-        <div id="step-3N" class="form-step">
-          <!-- Conteúdo do Passo 3N -->
-        </div>
+<div id="step1">
+    <h3>Passo-1</h3> 
+    <button>Conectar com Google</button> <button>Conectar com microsoft</button>
+    <input type="email" id="typeEmail">
+    <button class="btn-my-custom" aria-current="step2">Continuar</button>
+</div>
+<div id="step2">
+    <h3>Passo-2</h3>
+    <select class="form-select form-select-lg mb-3">
+        <option value="a">Sim, tenho domínio</option>
+        <option value="b">Não tenho domínio</option>
+    </select>
+    <button class="btn-my-custom" aria-current="back-step1">Voltar</button>
+    <button class="btn-my-custom" aria-current="step">Continuar</button>
+</div>
+<div id="step2A">
+    <h3>Passo-2A</h3>
+    <div class="form-check radio-opt" id="radio-2A">
+        <input class="form-check-input" type="radio"  id="1" checked>
+        <label class="form-check-label" for="1">
+          Site completo
+        </label>
       </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" id="2">
+        <label class="form-check-label" for="2">
+          Ecommerce completo
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" id="3" >
+        <label class="form-check-label" for="3">
+          Serviço completo
+        </label>
+      </div>
+      <button class="btn-my-custom" aria-current="back-step2">Voltar</button>
+      <button class="btn-my-custom" aria-current="step">Continuar</button>
+</div>
+<div id="step2A1">
+    <h3>Passo-2A1</h3>
+    <button class="btn-my-custom" aria-current="back-step2A">Voltar</button>
+    <button class="btn-my-custom" aria-current="step">Continuar</button>
+</div>
+<div id="step2A2">
+    <h3>Passo-2A2</h3>
+    <button class="btn-my-custom" aria-current="back-step2A">Voltar</button>
+    <button class="btn-my-custom" aria-current="step">Continuar</button>
+</div>
+<div id="step2A3">
+    <h3>Passo-2A3</h3>
+    <button class="btn-my-custom" id="search_domain"> Pesquisar dominio</button>
+    <input type="text" id="input_domain">
+    <div class="form-check radio-opt" id="radio-2A3">
+        <input class="form-check-input" type="radio"  id="1" checked>
+        <label class="form-check-label" for="1">
+          Registre o dominio em meu nome
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" id="2">
+        <label class="form-check-label" for="2">
+         Já tenho o dominio vou passar os dados de acesso
+        </label>
+      </div>
+    <button class="btn-my-custom" aria-current="back-step2A">Voltar</button>
+    <button class="btn-my-custom" aria-current="step">Continuar</button>
+</div>
+<div id="step2A3A">
+    <h3>Passo-2A3A</h3>
+       <div class="form-check radio-opt" id="radio-2A3A">
+        <input class="form-check-input" type="radio"  id="1" checked>
+        <label class="form-check-label" for="1">
+          Site completo 
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" id="2">
+        <label class="form-check-label" for="2">
+         Site completo com Ecommerce
+        </label>
+      </div>
+    <button class="btn-my-custom" aria-current="back-step2A3">Voltar</button>
+    <button class="btn-my-custom" aria-current="step">Continuar</button>
+</div>
+<div id="step2A3A1">
+    <h3>Passo-2A3A1</h3>
+            <div class="btn-group" id="checkbox2A3A1" role="group" aria-label="Basic checkbox toggle button group">
+            <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
+            <label class="btn btn-outline-primary" for="btncheck1">Seção 1</label>
+          
+            <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
+            <label class="btn btn-outline-primary" for="btncheck2">Seção 2</label>
+          
+            <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off">
+            <label class="btn btn-outline-primary" for="btncheck3">Seção 3</label>
     </div>
-  </div>
+    <button class="btn-my-custom" aria-current="back-step2A3A">Voltar</button>
+    <button class="btn-my-custom" aria-current="step">Continuar</button>    
+</div>
+<div id="step2A3A2">
+    <h3>Passo-2A3A2</h3>
+            <div class="btn-group" id="checkbox2A3A2" role="group" aria-label="Basic checkbox toggle button group">
+            <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
+            <label class="btn btn-outline-primary" for="btncheck1">Seção 1</label>
+          
+            <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
+            <label class="btn btn-outline-primary" for="btncheck2">Seção 2</label>
+          
+            <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off">
+            <label class="btn btn-outline-primary" for="btncheck3">Seção 3</label>
 
-  <!-- Scripts do Bootstrap e do seu arquivo JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.bundle.min.js"></script>
-  <script src="script_new.js"></script>
-</body>
-</html>
+            <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off">
+            <label class="btn btn-outline-primary" for="btncheck3">Seção 4</label>
+    </div>
+    <button class="btn-my-custom" aria-current="back-step2A3A">Voltar</button>
+    <button class="btn-my-custom" aria-current="step">Continuar</button>    
+</div>
+<!-- Seção a partir do Passo 2 se o user escoleu a opão "Não tenho dominio"-->
+<div id="step2B">
+    <h3>Passo-2B</h3>
+    <button class="btn-my-custom">Registrar com a gente</button>
+    <button class="btn-my-custom">Aprender sobre dominios</button>
+
+    <button class="btn-my-custom" aria-current="back-step2">Voltar</button>
+    <button class="btn-my-custom" aria-current="step2B1">Continuar</button>   
+</div>
+<div id="step2B1">
+    <h3>Passo-2B1</h3>
+    <button class="btn-my-custom">Registrar com a gente</button>
+    <button class="btn-my-custom">Registrar na empresa X</button>
+    <button class="btn-my-custom">Registrar na empresa Y</button>
+    <button class="btn-my-custom">Registrar na empresa W</button>
+
+    <button class="btn-my-custom" aria-current="back-step2">Voltar</button>
+    <button class="btn-my-custom" aria-current="step2B2">Continuar</button>   
+</div>
+<div id="step2B2">
+    <h3>Passo-2B2</h3>
+    <input type="email" id="email-step2B2">
+    <input type="textarea" id="textare-step2B2">
+    
+    <button class="btn-my-custom" aria-current="back-step2">Voltar</button>
+    <button class="btn-my-custom" type="submit">Enviar</button>   
+</div>
