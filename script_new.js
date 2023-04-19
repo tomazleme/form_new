@@ -23,6 +23,19 @@ function handleStep1Submit() {
     alert('Por favor, insira um endereço de email válido.');
   }
 }
+// Funçao para lidar com evento de clique no botão voltar do passo 2 para o passo 1
+function handleBackToStep1() {
+  showStep('step1');
+}
+
+function addEventListeners() {
+  const step1ContinueBtn = document.querySelector('#step1 .btn-my-custom[aria-current="step2"]');
+  step1ContinueBtn.addEventListener('click', handleStep1Submit);
+  step1ContinueBtn.addEventListener('keydown', handleStep1EnterPress);
+
+  const step2BackBtn = document.querySelector('#step2 .btn-my-custom[aria-current="back-step1"]');
+  step2BackBtn.addEventListener('click', handleBackToStep1);
+}
 
 // Função para adicionar event listeners
 function addEventListeners() {
