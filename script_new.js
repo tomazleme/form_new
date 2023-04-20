@@ -57,18 +57,21 @@ function handleStep2ASubmit() {
 
   radioInputs.forEach((input) => {
     if (input.checked) {
-      selectedOption = input.id;
-    }
-  });
+     selectedOption = input.id;
+   }
+ });
 
   if (selectedOption === '1p2A') {
     showStep('step2A1');
-  } else if (selectedOption === '2p2A') {
+   } else if (selectedOption === '2p2A') {
     showStep('step2A2');
-  } else if (selectedOption === '3p2A') {
+   } else if (selectedOption === '3p2A') {
     showStep('step2A3');
-  }
-}
+   }
+ }
+ 
+ // Função para lidar com o evento de clique no botão "Continuar" do Passo 2A, opção "Site completo"
+ 
 
 // Função para adicionar event listeners
 function addEventListeners() {
@@ -100,6 +103,8 @@ document.querySelector('#step2B .btn-my-custom[aria-current="back-step2"]').addE
 // Adiciona um event listener para o botão "Continuar" do Passo 2A
 document.querySelector('#step2A .btn-my-custom[aria-current="step"]').addEventListener('click', handleStep2ASubmit);
 
+
+// Adicionar os novos event listeners
 
 
 // Função para inicializar o estado do formulário, mostrando o Passo 1
