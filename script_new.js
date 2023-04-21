@@ -52,28 +52,65 @@ function handleStep2BBack() {
 
 // Função para lidar com o evento de clique no botão "Continuar" do Passo 2A
 function handleStep2ASubmit() {
-  const radioInputs = document.querySelectorAll('#radio-2A input[type="radio"]');
+  const checked = document.querySelector('#step2A input[type="radio"]:checked');
+  const checkedOption = checked.value;
   let selectedOption;
-
+  const radioInputs = document.querySelectorAll('#step2A input[type="radio"]');
   radioInputs.forEach((input) => {
     if (input.checked) {
-     selectedOption = input.id;
-   }
- });
-
+      selectedOption = input.id;
+    }
+  });
   if (selectedOption === '1p2A') {
     showStep('step2A1');
-   } else if (selectedOption === '2p2A') {
+  } else if (selectedOption === '2p2A') {
     showStep('step2A2');
-   } else if (selectedOption === '3p2A') {
+  } else if (selectedOption === '3p2A') {
     showStep('step2A3');
-   }
- }
+  }
+}
  
- // Função para lidar com o evento de clique no botão "Continuar" do Passo 2A, opção "Site completo"
- 
+// Função para lidar com o evento de clique no botão "Voltar" do Passo 2A1
+function handleStep2A1Back() {
+  showStep('step2A');
+}
 
-// Função para adicionar event listeners
+// Função para lidar com o evento de clique no botão "Voltar" do Passo 2A2
+function handleStep2A2Back() {
+  showStep('step2A');
+}
+
+// Função para lidar com o evento de clique no botão "Voltar" do Passo 2A3
+function handleStep2A3Back() {
+  showStep('step2A');
+}
+
+// Função para lidar com o evento de clique no botão "Voltar" do Passo 2A3A
+function handleStep2A3ABack() {
+  showStep('step2A3');
+}
+
+// Função para lidar com o evento de clique no botão "Voltar" do Passo 2A3A1
+function handleStep2A3A1Back() {
+  showStep('step2A3A');
+}
+
+// Função para lidar com o evento de clique no botão "Voltar" do Passo 2A3A2
+function handleStep2A3A2Back() {
+  showStep('step2A3A');
+}
+
+// Função para lidar com o evento de clique no botão "Voltar" do Passo 2B1
+function handleStep2B1Back() {
+  showStep('step2B');
+}
+
+// Função para lidar com o evento de clique no botão "Voltar" do Passo 2B2
+function handleStep2B2Back() {
+  showStep('step2B1');
+}
+ 
+// FUNÇÃO PARA ADCIONAR EVENT LISTENERS
 function addEventListeners() {
   // Adiciona um event listener para o botão "Continuar" do Passo 1
   document.querySelector('#step1 .btn-my-custom[aria-current="step2"]').addEventListener('click', handleStep1Submit);
@@ -103,9 +140,68 @@ document.querySelector('#step2B .btn-my-custom[aria-current="back-step2"]').addE
 // Adiciona um event listener para o botão "Continuar" do Passo 2A
 document.querySelector('#step2A .btn-my-custom[aria-current="step"]').addEventListener('click', handleStep2ASubmit);
 
+// Adiciona um event listener para o botão "Voltar" do Passo 2A1
+document.querySelector('#step2A1 .btn-my-custom[aria-current="back-step2A"]').addEventListener('click', handleStep2A1Back);
 
-// Adicionar os novos event listeners
+// Adiciona um event listener para o botão "Voltar" do Passo 2A2
+document.querySelector('#step2A2 .btn-my-custom[aria-current="back-step2A"]').addEventListener('click', handleStep2A2Back);
 
+// Adiciona um event listener para o botão "Voltar" do Passo 2A3
+document.querySelector('#step2A3 .btn-my-custom[aria-current="back-step2A"]').addEventListener('click', handleStep2A3Back);
+
+
+// Adiciona event listener do Passo 2A3 verifica se o dominio é valido ou se quer que registre
+document.querySelector('#step2A3 .btn-my-custom[aria-current="step"]').addEventListener('click', () => {
+  const domainInput = document.querySelector('#input_domain');
+  const domainRadio1 = document.querySelector('#domain-1');
+  const domainRadio2 = document.querySelector('#domain-2');
+  const domainRegex = /^(?!:\/\/)([a-zA-Z0-9]+\.)?[a-zA-Z0-9][a-zA-Z0-9-]+\.[a-zA-Z]{2,6}?$/i;
+  if (!domainRegex.test(domainInput.value)) {
+    alert('Please enter a valid domain');
+  } else if (!domainRadio1.checked && !domainRadio2.checked) {
+    alert('Please select one of the options');
+  } else {
+    showStep('step2A3A');
+  }
+});
+
+// Adiciona um event listener para o botão "Voltar" do Passo 2A3A
+document.querySelector('#step2A3A .btn-my-custom[aria-current="back-step2A3"]').addEventListener('click', handleStep2A3ABack);
+
+// Adiciona um event listener para o botão "Continuar" do Passo 2A3A
+document.querySelector('#step2A3A .btn-my-custom[aria-current="step"]').addEventListener('click', () => {
+  const siteType1 = document.querySelector('#siteType1');
+  const siteType2 = document.querySelector('#siteType2');
+  if (siteType1.checked) {
+    showStep('step2A3A1');
+  } else if (siteType2.checked) {
+    showStep('step2A3A2');
+  } else {
+    alert('Please select one of the options');
+  }
+});
+
+// Adiciona um event listener para o botão "Voltar" do Passo 2A3A1
+document.querySelector('#step2A3A1 .btn-my-custom[aria-current="back-step2A3A"]').addEventListener('click', handleStep2A3A1Back);
+
+// Adiciona um event listener para o botão "Voltar" do Passo 2A3A2
+document.querySelector('#step2A3A2 .btn-my-custom[aria-current="back-step2A3A"]').addEventListener('click', handleStep2A3A2Back);
+
+// Adiciona um event listener para o botão "Continuar" do Passo 2B para o Passo 2B1
+document.querySelector('#step2B .btn-my-custom[aria-current="step2B1"]').addEventListener('click', () => {
+  showStep('step2B1');
+});
+
+// Adiciona um event listener para o botão "Voltar" do Passo 2B1
+document.querySelector('#step2B1 .btn-my-custom[aria-current="back-step2"]').addEventListener('click', handleStep2B1Back);
+
+// Adiciona um event listener para o botão "Continuar" do Passo 2B1 para o Passo 2B2
+document.querySelector('#step2B1 .btn-my-custom[aria-current="step2B2"]').addEventListener('click', () => {
+  showStep('step2B2');
+});
+
+// Adiciona um event listener para o botão "Voltar" do Passo 2B2
+document.querySelector('#step2B2 .btn-my-custom[aria-current="back-step2"]').addEventListener('click', handleStep2B2Back);
 
 // Função para inicializar o estado do formulário, mostrando o Passo 1
 function initializeForm() {
